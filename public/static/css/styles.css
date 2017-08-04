@@ -1,0 +1,20 @@
+.container {
+    display: -webkit-flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    /*color: white;*/
+}
+body{
+    background: url(../images/bucketlist.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.jumbotron{
+    opacity: 0.8;
+    color:black;
+    margin-top: 50px;
+}
