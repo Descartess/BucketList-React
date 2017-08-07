@@ -1,20 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
 
 const SignInForm = props => (
   <Modal
     show={props.show}
+    bsSize="small"
   >
-    <Modal.Header>
-      Sign In
+    <Modal.Header closeButton onHide={props.onSignIn}>
+      <Modal.Title>Sign In</Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <p>This is the body</p>
+      <form>
+        <FormGroup>
+          <FormControl
+            type="text"
+            placeholder="Username"
+            onChange={props.userChange}
+            value={props.data.username}
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormControl
+            type="password"
+            placeholder="Password"
+            onChange={props.passwordChange}
+            value={props.data.password}
+          />
+        </FormGroup>
+      </form>
     </Modal.Body>
     <Modal.Footer>
       <Button
+        bsSize="large"
         onClick={props.onSignIn}
+        block
       >
         Sign In
       </Button>
@@ -25,6 +45,8 @@ const SignInForm = props => (
 SignInForm.propTypes = {
   show: PropTypes.bool.isRequired,
   onSignIn: PropTypes.func.isRequired,
+  userChange: PropTypes.func.isRequired,
+  passwordChange: PropTypes.func.isRequired,
 };
 
 export default SignInForm;
