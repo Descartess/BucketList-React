@@ -7,7 +7,7 @@ const SignInForm = props => (
     show={props.show}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.onSignIn}>
+    <Modal.Header closeButton onHide={props.onSignInShow}>
       <Modal.Title>Sign In</Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -45,6 +45,7 @@ const SignInForm = props => (
 SignInForm.propTypes = {
   show: PropTypes.bool.isRequired,
   onSignIn: PropTypes.func.isRequired,
+  onSignInShow: PropTypes.func.isRequired,
   userChange: PropTypes.func.isRequired,
   passwordChange: PropTypes.func.isRequired,
 };
