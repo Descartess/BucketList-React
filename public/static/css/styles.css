@@ -18,3 +18,16 @@ body{
     color:black;
     margin-top: 50px;
 }
+
+.panel-default {
+    opacity: 0.8;
+}
+
+.glyphicon {
+    font-size: 15px;
+    padding: 5px;
+}
+
+#addBucket {
+    cursor: pointer;
+}
