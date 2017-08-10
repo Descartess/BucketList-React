@@ -16,7 +16,6 @@ class Authenticate extends Component {
       username: '',
       password: '',
       rpassword: '',
-
     };
     this.onSignInShow = this.onSignInShow.bind(this);
     this.onSignUpShow = this.onSignUpShow.bind(this);
@@ -97,3 +96,5 @@ Authenticate.propTypes = {
 };
 
 export default connect(mapStateToProps, { registerUser, signinUser })(Authenticate);
+
+export { Authenticate };
