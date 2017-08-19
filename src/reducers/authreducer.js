@@ -28,6 +28,14 @@ export default (state = INITIAL_STATE, action) => {
         token: action.payload.data.token,
         authenticated: true,
       };
+    case 'SIGNOUT_FULFILLED':
+      return { ...INITIAL_STATE };
+    case 'RESETPASSWORD_FULFILLED':
+      return {
+        ...state,
+        loading: false,
+        token: action.payload.data.token,
+      };
     default:
       return state;
   }

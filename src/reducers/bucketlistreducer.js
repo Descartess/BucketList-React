@@ -12,6 +12,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state };
     case 'POST_BUCKETLISTS_FULFILLED':
       return { ...state };
+    case 'SIGNOUT_FULFILLED':
+      return { ...INITIAL_STATE };
     default:
       return { ...state };
   }
