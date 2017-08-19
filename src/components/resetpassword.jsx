@@ -15,19 +15,25 @@ const ResetPassword = props => (
         <FormGroup>
           <FormControl
             type="text"
+            value={props.data.username}
+            onChange={props.changeUsername}
             placeholder="Username"
           />
         </FormGroup>
         <FormGroup>
           <FormControl
             type="password"
+            value={props.data.old_password}
+            onChange={props.changeOldPassword}
             placeholder="Old Password"
           />
         </FormGroup>
         <FormGroup>
           <FormControl
             type="password"
+            value={props.data.new_password}
             placeholder="New Password"
+            onChange={props.changeNewPassword}
           />
         </FormGroup>
       </form>
@@ -36,6 +42,7 @@ const ResetPassword = props => (
       <Button
         bsSize="large"
         block
+        onClick={props.passwordreset}
       >
         Reset Password
       </Button>
