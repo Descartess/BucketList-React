@@ -16,7 +16,7 @@ const ConfirmDelete = props => (
       <Button
         bsSize="large"
         bsStyle="danger"
-        onClick={console.log('delete')}
+        onClick={props.delete}
       >
         Delete
       </Button>
