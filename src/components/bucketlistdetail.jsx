@@ -2,7 +2,7 @@ import React from 'react';
 import { ListGroupItem, Glyphicon } from 'react-bootstrap';
 
 const BucketListDetail = props => (
-  <ListGroupItem>
+  <ListGroupItem onClick={props.select}>
     {props.name}
     <div className="pull-right">
       <Glyphicon glyph="pencil" onClick={props.edit} />
