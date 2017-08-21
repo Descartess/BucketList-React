@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/header';
+import Header from '../components/nav_header';
 import { resetpassword, signout } from '../actions';
 import ResetPassword from '../components/resetpassword';
 import BucketListContainer from './bucketlist';
+import ItemContainer from './items';
 
 class Home extends Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class Home extends Component {
           data={this.state}
         />
         <BucketListContainer />
+        <ItemContainer />
       </div>
 
     );
