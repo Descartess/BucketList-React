@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const INITIAL_STATE = {
   bucketlists: [],
-  selected_bucket: null,
+  selectedBucket: null,
   selected_item: null,
 };
 
@@ -30,9 +30,15 @@ export default (state = INITIAL_STATE, action) => {
         bucketlists: _.unionBy([bucketlist], state.bucketlists, 'id'),
       }; }
     case 'SIGNOUT_FULFILLED':
-      return { ...INITIAL_STATE };
+      return { ...state };
+    case 'POST_ITEMS_FULFILLED':
+      return { ...state };
+    case 'DELETE_ITEMS_FULFILLED':
+      return { ...state };
+    case 'EDIT_ITEMS_FULFILLED':
+      return { ...state };
     case 'SELECT_BUCKETLIST':
-      return { ...state, selected_bucket: action.payload };
+      return { ...state, selectedBucket: action.payload };
     case 'SELECT_ITEM':
       return { ...state, selected_item: action.payload };
     default:
