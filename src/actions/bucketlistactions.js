@@ -20,6 +20,21 @@ export const putBucketList = (id, { name, completed_by }) => ({
   payload: instance.put(`/bucketlists/${id}`, { name, completed_by }),
 });
 
+export const addBucketListItem = (id, { name }) => ({
+  type: 'POST_ITEMS',
+  payload: instance.post(`/bucketlists/${id}/items`, { name }),
+});
+
+export const editBucketListItem = (id, itemId, { name }) => ({
+  type: 'EDIT_ITEMS',
+  payload: instance.put(`/bucketlists/${id}/items/${itemId}`, { name }),
+});
+
+export const deleteBucketListItem = (id, itemId) => ({
+  type: 'DELETE_ITEMS',
+  payload: instance.delete(`/bucketlists/${id}/items/${itemId}`),
+});
+
 export const selectBucketList = id => ({
   type: 'SELECT_BUCKETLIST',
   payload: id,
