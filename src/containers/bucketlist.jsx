@@ -62,9 +62,9 @@ class BucketListContainer extends Component {
     this.setState({ showDeleteBucketList: !this.state.showDeleteBucketList });
   }
   editBucketList() {
-    const { selected_bucket } = this.props;
+    const { selectedBucket } = this.props;
     const { bucketlist_name, bucketlist_age } = this.state;
-    this.props.putBucketList(selected_bucket,
+    this.props.putBucketList(selectedBucket,
       { name: bucketlist_name, completed_by: bucketlist_age });
   }
   addBucketList() {
@@ -92,7 +92,7 @@ class BucketListContainer extends Component {
   }
 
   render() {
-    const { selected_bucket } = this.props;
+    const { selectedBucket } = this.props;
     return (
       <div>
         <div className="col-md-4">
@@ -117,7 +117,7 @@ class BucketListContainer extends Component {
         <EditBucketListForm
           show={this.state.showEditBucketList}
           data={this.state}
-          showEditBucketList={() => this.showEditBucketList(selected_bucket)}
+          showEditBucketList={() => this.showEditBucketList(selectedBucket)}
           onNameChange={this.changeBucketListname}
           onAgeChange={this.changeBucketListage}
           editBucketList={this.editBucketList}
@@ -126,15 +126,15 @@ class BucketListContainer extends Component {
           show={this.state.showDeleteBucketList}
           name="BucketList"
           cancel={this.showDeleteBucketList}
-          delete={() => this.props.deleteBucketList(selected_bucket)}
+          delete={() => this.props.deleteBucketList(selectedBucket)}
         />
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
-  const { bucketlists, selected_bucket } = state.bucketlists;
-  return { bucketlists, selected_bucket };
+  const { bucketlists, selectedBucket } = state.bucketlists;
+  return { bucketlists, selectedBucket };
 };
 
 export default connect(mapStateToProps, {
