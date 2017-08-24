@@ -31,12 +31,21 @@ export default (state = INITIAL_STATE, action) => {
       }; }
     case 'SIGNOUT_FULFILLED':
       return { ...state };
-    case 'POST_ITEMS_FULFILLED':
-      return { ...state };
-    case 'DELETE_ITEMS_FULFILLED':
-      return { ...state };
-    case 'EDIT_ITEMS_FULFILLED':
-      return { ...state };
+    case 'POST_ITEMS_FULFILLED': {
+      const { bucketlist } = action.payload.data;
+      return { ...state,
+        bucketlists: _.unionBy([bucketlist], state.bucketlists, 'id'),
+      }; }
+    case 'DELETE_ITEMS_FULFILLED': {
+      const { bucketlist } = action.payload.data;
+      return { ...state,
+        bucketlists: _.unionBy([bucketlist], state.bucketlists, 'id'),
+      }; }
+    case 'EDIT_ITEMS_FULFILLED': {
+      const { bucketlist } = action.payload.data;
+      return { ...state,
+        bucketlists: _.unionBy([bucketlist], state.bucketlists, 'id'),
+      }; }
     case 'SELECT_BUCKETLIST':
       return { ...state, selectedBucket: action.payload };
     case 'SELECT_ITEM':
