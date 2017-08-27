@@ -16,7 +16,7 @@ const AddBucketListItemForm = props => (
           <FormControl
             type="text"
             placeholder="name"
-            value={props.data.item_name}
+            value={props.item_name}
             onChange={props.onNameChange}
           />
         </FormGroup>
