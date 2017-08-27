@@ -25,9 +25,9 @@ export const addBucketListItem = (id, { name }) => ({
   payload: instance.post(`/bucketlists/${id}/items`, { name }),
 });
 
-export const editBucketListItem = (id, itemId, { name }) => ({
+export const editBucketListItem = (id, itemId, { name, completed }) => ({
   type: 'EDIT_ITEMS',
-  payload: instance.put(`/bucketlists/${id}/items/${itemId}`, { name }),
+  payload: instance.put(`/bucketlists/${id}/items/${itemId}`, { name, completed }),
 });
 
 export const deleteBucketListItem = (id, itemId) => ({
