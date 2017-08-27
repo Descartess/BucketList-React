@@ -16,7 +16,7 @@ const AddBucketListForm = props => (
           <FormControl
             type="text"
             placeholder="name"
-            value={props.data.bucketlist_name}
+            value={props.bucketlist_name}
             onChange={props.onNameChange}
           />
         </FormGroup>
@@ -24,7 +24,7 @@ const AddBucketListForm = props => (
           <FormControl
             type="number"
             placeholder="Enter age of completion"
-            value={props.data.bucketlist_age}
+            value={props.bucketlist_age}
             onChange={props.onAgeChange}
           />
         </FormGroup>
