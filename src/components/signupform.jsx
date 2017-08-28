@@ -50,13 +50,13 @@ const SignUpForm = props => (
   </Modal>
 );
 
-SignUpForm.propTypes = {
-  show: PropTypes.bool.isRequired,
-  onSignUp: PropTypes.func.isRequired,
-  onSignUpShow: PropTypes.func.isRequired,
-  userChange: PropTypes.func.isRequired,
-  rpasswordChange: PropTypes.func.isRequired,
-  passwordChange: PropTypes.func.isRequired,
-};
+// SignUpForm.propTypes = {
+//   show: PropTypes.bool.isRequired,
+//   onSignUp: PropTypes.func.isRequired,
+//   onSignUpShow: PropTypes.func.isRequired,
+//   userChange: PropTypes.func.isRequired,
+//   rpasswordChange: PropTypes.func.isRequired,
+//   passwordChange: PropTypes.func.isRequired,
+// };
 
 export default SignUpForm;

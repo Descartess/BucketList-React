@@ -89,11 +89,11 @@ const mapStateToProps = (state) => {
   return { loading };
 };
 
-Authenticate.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  registerUser: PropTypes.func.isRequired,
-  signinUser: PropTypes.func.isRequired,
-};
+// Authenticate.propTypes = {
+//   loading: PropTypes.bool.isRequired,
+//   registerUser: PropTypes.func.isRequired,
+//   signinUser: PropTypes.func.isRequired,
+// };
 
 export default connect(mapStateToProps, { registerUser, signinUser })(Authenticate);
 

@@ -42,12 +42,12 @@ const SignInForm = props => (
   </Modal>
 );
 
-SignInForm.propTypes = {
-  show: PropTypes.bool.isRequired,
-  onSignIn: PropTypes.func.isRequired,
-  onSignInShow: PropTypes.func.isRequired,
-  userChange: PropTypes.func.isRequired,
-  passwordChange: PropTypes.func.isRequired,
-};
+// SignInForm.propTypes = {
+//   show: PropTypes.bool.isRequired,
+//   onSignIn: PropTypes.func.isRequired,
+//   onSignInShow: PropTypes.func.isRequired,
+//   userChange: PropTypes.func.isRequired,
+//   passwordChange: PropTypes.func.isRequired,
+// };
 
 export default SignInForm;
