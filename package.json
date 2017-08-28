@@ -1,0 +1,41 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bootstrap": "^3.3.7",
+    "lodash": "^4.17.4",
+    "moxios": "^0.4.0",
+    "nock": "^9.0.14",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.1",
+    "react-bootstrap-toggle": "^2.0.8",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-scripts": "1.0.10",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.2.3",
+    "redux-persist": "^4.8.3",
+    "redux-promise-middleware": "^4.2.1",
+    "redux-thunk": "^2.2.0",
+    "testcafe": "^0.17.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^15.6.1"
+  }
+}
