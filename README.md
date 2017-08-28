@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Descartess/BucketList-React.svg?branch=master)](https://travis-ci.org/Descartess/BucketList-React)
 # BucketList-React
 
 **BucketList** is a web application designed to help one to record, edit, update activities one desires to accomplish before reaching a certain age. This application consumes a rest API which displays the client side
