@@ -30,6 +30,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "enzyme": "^2.9.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
