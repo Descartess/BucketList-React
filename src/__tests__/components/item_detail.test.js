@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Authenticate } from '../containers/authenticate';
+import ItemDetail from '../../components/item_detail';
 
-describe('Authenticate component renders correctly', () => {
+describe('edit item component', () => {
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <Authenticate />,
-      );
+      <ItemDetail />,
+    );
     expect(rendered.toJSON()).toMatchSnapshot();
   });
 });

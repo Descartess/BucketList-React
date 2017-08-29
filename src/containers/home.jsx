@@ -74,3 +74,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { resetpassword, signout })(Home);
+
+export { Home };

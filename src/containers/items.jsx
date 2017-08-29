@@ -150,3 +150,5 @@ export default connect(mapStateToProps,
     deleteBucketListItem,
     selectBucketItem,
   })(ItemContainer);
+
+export { ItemContainer };

@@ -143,3 +143,5 @@ export default connect(mapStateToProps, {
   selectBucketList,
   deleteBucketList,
   putBucketList })(BucketListContainer);
+
+export { BucketListContainer };
