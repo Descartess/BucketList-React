@@ -1,8 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Authenticate } from '../containers/authenticate';
+import renderer from 'react-test-renderer';
+import { Authenticate } from '../../containers/authenticate';
 
 describe('<Authenticate />', () => {
+  it('renders correctly', () => {
+    const rendered = renderer.create(
+      <Authenticate />,
+      );
+    expect(rendered.toJSON()).toMatchSnapshot();
+  });
   it('updates state when sign in button is clicked', () => {
     const component = mount(<Authenticate />);
     expect(component.state().showSignIn).toBeFalsy();

@@ -2,8 +2,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import moxios from 'moxios';
-import * as actions from '../actions';
-import instance from '../config/axiosconfig';
+import * as actions from '../../actions';
+import instance from '../../config/axiosconfig';
 
 
 // const host = 'http://localhost:5000';
