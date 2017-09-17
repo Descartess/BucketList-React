@@ -4,10 +4,10 @@ import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
 
 const AddBucketListItemForm = props => (
   <Modal
-    show={props.show}
+    show={props.showAddItem}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.close}>
+    <Modal.Header closeButton onHide={() => props.onShowAddItem()}>
       <Modal.Title>Add Bucketlist Item </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -26,7 +26,7 @@ const AddBucketListItemForm = props => (
       <Button
         bsSize="large"
         block
-        onClick={props.addBucketListItem}
+        onClick={() => props.addBucketListItem(props.selectedBucket,{ name: props.item_name })}
       >
         Add Bucketlist Item
       </Button>

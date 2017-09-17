@@ -3,11 +3,11 @@ import { Modal, Button } from 'react-bootstrap';
 
 const ConfirmDelete = props => (
   <Modal
-    show={props.show}
+    show={props.showDeleteItem}
     bsSize="small"
   >
     <Modal.Header>
-      <Modal.Title> Delete {props.name} </Modal.Title>
+      <Modal.Title> Delete {props.item_name} </Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <p>Are you sure you want delete this ?</p>
@@ -16,14 +16,14 @@ const ConfirmDelete = props => (
       <Button
         bsSize="large"
         bsStyle="danger"
-        onClick={props.delete}
+        onClick={() => props.deleteBucketListItem(props.selectedBucket, props.selected_item)}
       >
         Delete
       </Button>
       <Button
         bsSize="large"
         bsStyle="success"
-        onClick={props.cancel}
+        onClick={() => props.onShowDeleteItem()}
       >
         Cancel
       </Button>

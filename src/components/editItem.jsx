@@ -7,19 +7,19 @@ import '../../node_modules/react-bootstrap-toggle/src/bootstrap2-toggle.css';
 
 const EditBucketListItem = props => (
   <Modal
-    show={props.show}
+    show={props.showEditItem}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.close}>
+    <Modal.Header closeButton onHide={() => props.onShowEditItem()}>
       <Modal.Title>{props.item_name}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <form>
         <FormGroup>
-          <h4>Completed 
+          <h4>Completed
           <div className="pull-right">
             <Toggle
-              onClick={props.onToggle}
+              onClick={() => props.onToggleCompleted()}
               on={<h6>True</h6>}
               off={<h6>False</h6>}
               size="xs"
@@ -35,7 +35,8 @@ const EditBucketListItem = props => (
       <Button
         bsSize="large"
         block
-        onClick={props.editBucketItem}
+        onClick={() => props.editBucketListItem(props.selectedBucket, props.selected_item,
+        { name: props.item_name, completed: props.completed })}
       >
         Save Item
       </Button>
