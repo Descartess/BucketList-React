@@ -40,7 +40,7 @@ AddBucketListItemForm.defaultProps = {
 AddBucketListItemForm.propTypes = {
   showAddItem: PropTypes.bool.isRequired,
   onShowAddItem: PropTypes.func.isRequired,
-  selectedBucket: PropTypes.string,
+  selectedBucket: PropTypes.number,
   item_name: PropTypes.string.isRequired,
   onNameChange: PropTypes.func.isRequired,
   addBucketListItem: PropTypes.func.isRequired,
