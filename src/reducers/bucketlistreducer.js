@@ -4,6 +4,11 @@ const INITIAL_STATE = {
   bucketlists: [],
   selectedBucket: null,
   selected_item: null,
+  showAddBucketList: false,
+  showEditBucketList: false,
+  showDeleteBucketList: false,
+  bucketlist_name: '',
+  bucketlist_age: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -50,6 +55,16 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, selectedBucket: action.payload };
     case 'SELECT_ITEM':
       return { ...state, selected_item: action.payload };
+    case 'CHANGE_BUCKETLIST_NAME':
+      return { ...state, bucketlist_name: action.payload };
+    case 'CHANGE_BUCKETLIST_AGE':
+      return { ...state, bucketlist_age: action.payload };
+    case 'SHOW_ADD_BUCKETLIST':
+      return { ...state, showAddBucketList: !state.showAddBucketList };
+    case 'SHOW_EDIT_BUCKETLIST':
+      return { ...state, showEditBucketList: !state.showEditBucketList };
+    case 'SHOW_DELETE_BUCKETLIST':
+      return { ...state, showDeleteBucketList: !state.showDeleteBucketList };
     default:
       return { ...state };
   }

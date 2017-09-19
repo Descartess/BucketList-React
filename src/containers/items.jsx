@@ -36,14 +36,16 @@ class ItemContainer extends Component {
     );
   }
   renderItems() {
-    const { selectedBucket, bucketlists } = this.props.bucketlists;
+    const { selectedBucket, bucketlists } = this.props.bucketlistsContainer;
+    const { itemActions } = this.props;
     if (selectedBucket) {
       const bucket = _.find(bucketlists, n => n.id === selectedBucket);
       return (
         <div className="panel panel-default">
           <Header
+            {...itemActions}
             title={bucket.name}
-            add={this.props.itemActions.onShowAddItem}
+            add
           />
           <div className="panel-body">
             {this.itemsDisplay(bucket)}
@@ -62,7 +64,7 @@ class ItemContainer extends Component {
   }
   render() {
     const { itemsContainer, itemActions } = this.props;
-    const { selectedBucket, selected_item } = this.props.bucketlists;
+    const { selectedBucket, selected_item } = this.props.bucketlistsContainer;
     return (
       <div>
         <div className="col-md-6">
@@ -92,8 +94,8 @@ class ItemContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { bucketlists, itemsContainer } = state;
-  return { bucketlists, itemsContainer };
+  const { bucketlistsContainer, itemsContainer } = state;
+  return { bucketlistsContainer, itemsContainer };
 };
 
 const mapDispatchToProps = dispatch => ({

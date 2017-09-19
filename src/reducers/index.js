@@ -5,7 +5,7 @@ import ItemsContainerReducer from './itemContainerreducer';
 
 const reducers = combineReducers({
   auth: AuthReducer,
-  bucketlists: BucketListReducer,
+  bucketlistsContainer: BucketListReducer,
   itemsContainer: ItemsContainerReducer,
 });
 

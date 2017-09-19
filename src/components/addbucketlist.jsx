@@ -4,10 +4,10 @@ import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
 
 const AddBucketListForm = props => (
   <Modal
-    show={props.show}
+    show={props.showAddBucketList}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.showAddBucketList}>
+    <Modal.Header closeButton onHide={() => props.onShowAddBucketList()}>
       <Modal.Title>Add Bucketlist </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -17,7 +17,7 @@ const AddBucketListForm = props => (
             type="text"
             placeholder="name"
             value={props.bucketlist_name}
-            onChange={props.onNameChange}
+            onChange={props.onChangeBucketListName}
           />
         </FormGroup>
         <FormGroup>
@@ -25,7 +25,7 @@ const AddBucketListForm = props => (
             type="number"
             placeholder="Enter age of completion"
             value={props.bucketlist_age}
-            onChange={props.onAgeChange}
+            onChange={props.onChangeBucketListAge}
           />
         </FormGroup>
       </form>
@@ -34,7 +34,11 @@ const AddBucketListForm = props => (
       <Button
         bsSize="large"
         block
-        onClick={props.addBucketList}
+        onClick={() => props.postBucketList({
+          name: props.bucketlist_name,
+          completed_by: props.bucketlist_age,
+        })
+        }
       >
         Add Bucketlist
       </Button>

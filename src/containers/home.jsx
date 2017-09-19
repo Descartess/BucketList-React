@@ -69,7 +69,7 @@ class Home extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  const { bucketlists } = state.bucketlists;
+  const { bucketlists } = state.bucketlistsContainer;
   return { bucketlists };
 };
 
