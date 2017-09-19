@@ -46,10 +46,19 @@ const EditBucketListForm = props => (
   </Modal>
 );
 
+EditBucketListForm.defaultProps = {
+  selectedBucket: null,
+};
+
 EditBucketListForm.propTypes = {
-  show: PropTypes.bool.isRequired,
-  showEditBucketList: PropTypes.func.isRequired,
-  editBucketList: PropTypes.func.isRequired,
+  showEditBucketList: PropTypes.bool.isRequired,
+  onShowEditBucketList: PropTypes.func.isRequired,
+  selectedBucket: PropTypes.number,
+  putBucketList: PropTypes.func.isRequired,
+  bucketlist_name: PropTypes.string.isRequired,
+  bucketlist_age: PropTypes.string.isRequired,
+  onChangeBucketListAge: PropTypes.func.isRequired,
+  onChangeBucketListName: PropTypes.func.isRequired,
 };
 
 export default EditBucketListForm;

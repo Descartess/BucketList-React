@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
 import Header from '../components/header';
 import AddBucketListItemForm from '../components/additem';
@@ -64,7 +65,7 @@ class ItemContainer extends Component {
   }
   render() {
     const { itemsContainer, itemActions } = this.props;
-    const { selectedBucket, selected_item } = this.props.bucketlistsContainer;
+    const { selectedBucket, selectedItem } = this.props.bucketlistsContainer;
     return (
       <div>
         <div className="col-md-6">
@@ -80,13 +81,13 @@ class ItemContainer extends Component {
           {...itemActions}
           name="BucketList Item"
           selectedBucket={selectedBucket}
-          selected_item={selected_item}
+          selectedItem={selectedItem}
         />
         <EditBucketListItem
           {...itemActions}
           {...itemsContainer}
           selectedBucket={selectedBucket}
-          selected_item={selected_item}
+          selectedItem={selectedItem}
         />
       </div>
     );
@@ -101,6 +102,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   itemActions: bindActionCreators(actions, dispatch),
 });
+
+ItemContainer.defaultProps = {
+  selectedBucket: null,
+  selectedItem: null,
+};
+
+ItemContainer.propTypes = {
+  selectedBucket: PropTypes.number,
+  selectedItem: PropTypes.number,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(ItemContainer);
 
 export { ItemContainer };

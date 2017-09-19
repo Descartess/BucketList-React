@@ -30,9 +30,9 @@ const Banner = props => (
   </div>
 );
 
-// Banner.propTypes = {
-//   onSignInShow: PropTypes.func.isRequired,
-//   onSignUpShow: PropTypes.func.isRequired,
-// };
+Banner.propTypes = {
+  onShowSignUp: PropTypes.func.isRequired,
+  onShowSignIn: PropTypes.func.isRequired,
+};
 
 export default Banner;

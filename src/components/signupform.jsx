@@ -41,7 +41,7 @@ const SignUpForm = props => (
     <Modal.Footer>
       <Button
         bsSize="large"
-        onClick={() => props.registerUser({username: props.username, password:props.password })}
+        onClick={() => props.registerUser({ username: props.username, password: props.password })}
         block
       >
         Sign Up
@@ -50,13 +50,17 @@ const SignUpForm = props => (
   </Modal>
 );
 
-// SignUpForm.propTypes = {
-//   show: PropTypes.bool.isRequired,
-//   onSignUp: PropTypes.func.isRequired,
-//   onSignUpShow: PropTypes.func.isRequired,
-//   userChange: PropTypes.func.isRequired,
-//   rpasswordChange: PropTypes.func.isRequired,
-//   passwordChange: PropTypes.func.isRequired,
-// };
+SignUpForm.propTypes = {
+  onShowSignUp: PropTypes.func.isRequired,
+  onRepeatPasswordChange: PropTypes.func.isRequired,
+  onUsernameChange: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
+  onPasswordChange: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  rpassword: PropTypes.string.isRequired,
+  showSignUp: PropTypes.bool.isRequired,
+};
+
 
 export default SignUpForm;

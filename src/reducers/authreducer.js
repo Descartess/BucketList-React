@@ -7,6 +7,9 @@ const INITIAL_STATE = {
   username: '',
   password: '',
   rpassword: '',
+  old_password: '',
+  new_password: '',
+  showResetPassword: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -51,6 +54,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, showSignIn: !state.showSignIn };
     case 'SHOW_SIGNUP':
       return { ...state, showSignUp: !state.showSignUp };
+    case 'SHOW_RESETPASSWORD':
+      return { ...state, showSignUp: !state.showResetPassword };
     default:
       return state;
   }

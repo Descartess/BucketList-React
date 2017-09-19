@@ -24,6 +24,10 @@ export const onShowSignIn = () => ({
   type: 'SHOW_SIGNIN',
 });
 
+export const onShowResetPassword = () => ({
+  type: 'SHOW_RESETPASSWORD',
+});
+
 export const onShowSignUp = () => ({
   type: 'SHOW_SIGNUP',
 });
@@ -40,5 +44,15 @@ export const onPasswordChange = e => ({
 
 export const onRepeatPasswordChange = e => ({
   type: 'REPEAT_PASSWORD_CHANGE',
+  payload: e.target.value,
+});
+
+export const changeNewPassword = e => ({
+  type: 'NEW_PASSWORD_CHANGE',
+  payload: e.target.value,
+});
+
+export const changeOldPassword = e => ({
+  type: 'OLD_PASSWORD_CHANGE',
   payload: e.target.value,
 });

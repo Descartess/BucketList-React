@@ -35,7 +35,7 @@ const EditBucketListItem = props => (
       <Button
         bsSize="large"
         block
-        onClick={() => props.editBucketListItem(props.selectedBucket, props.selected_item,
+        onClick={() => props.editBucketListItem(props.selectedBucket, props.selectedItem,
         { name: props.item_name, completed: props.completed })}
       >
         Save Item
@@ -43,10 +43,20 @@ const EditBucketListItem = props => (
     </Modal.Footer>
   </Modal>
 );
+EditBucketListItem.defaultProps = {
+  selectedItem: null,
+  selectedBucket: null,
+};
 
 EditBucketListItem.propTypes = {
-  show: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
+  selectedBucket: PropTypes.number,
+  selectedItem: PropTypes.number,
+  completed: PropTypes.bool.isRequired,
+  showEditItem: PropTypes.bool.isRequired,
+  onShowEditItem: PropTypes.func.isRequired,
+  onToggleCompleted: PropTypes.func.isRequired,
+  editBucketListItem: PropTypes.func.isRequired,
+  item_name: PropTypes.string.isRequired,
 };
 
 export default EditBucketListItem;

@@ -3,7 +3,7 @@ import _ from 'lodash';
 const INITIAL_STATE = {
   bucketlists: [],
   selectedBucket: null,
-  selected_item: null,
+  selectedItem: null,
   showAddBucketList: false,
   showEditBucketList: false,
   showDeleteBucketList: false,
@@ -54,7 +54,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'SELECT_BUCKETLIST':
       return { ...state, selectedBucket: action.payload };
     case 'SELECT_ITEM':
-      return { ...state, selected_item: action.payload };
+      return { ...state, selectedItem: action.payload };
     case 'CHANGE_BUCKETLIST_NAME':
       return { ...state, bucketlist_name: action.payload };
     case 'CHANGE_BUCKETLIST_AGE':

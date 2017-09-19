@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 
 import Header from '../components/header_bucketlist';

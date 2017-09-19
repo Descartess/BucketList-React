@@ -26,17 +26,22 @@ const AddBucketListItemForm = props => (
       <Button
         bsSize="large"
         block
-        onClick={() => props.addBucketListItem(props.selectedBucket,{ name: props.item_name })}
+        onClick={() => props.addBucketListItem(props.selectedBucket, { name: props.item_name })}
       >
         Add Bucketlist Item
       </Button>
     </Modal.Footer>
   </Modal>
 );
+AddBucketListItemForm.defaultProps = {
+  selectedBucket: null,
+};
 
 AddBucketListItemForm.propTypes = {
-  show: PropTypes.bool.isRequired,
-  close: PropTypes.func.isRequired,
+  showAddItem: PropTypes.bool.isRequired,
+  onShowAddItem: PropTypes.func.isRequired,
+  selectedBucket: PropTypes.string,
+  item_name: PropTypes.string.isRequired,
   onNameChange: PropTypes.func.isRequired,
   addBucketListItem: PropTypes.func.isRequired,
 };

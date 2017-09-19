@@ -47,9 +47,13 @@ const AddBucketListForm = props => (
 );
 
 AddBucketListForm.propTypes = {
-  show: PropTypes.bool.isRequired,
-  showAddBucketList: PropTypes.func.isRequired,
-  addBucketList: PropTypes.func.isRequired,
+  showAddBucketList: PropTypes.bool.isRequired,
+  onShowAddBucketList: PropTypes.func.isRequired,
+  bucketlist_name: PropTypes.string.isRequired,
+  bucketlist_age: PropTypes.string.isRequired,
+  onChangeBucketListName: PropTypes.func.isRequired,
+  onChangeBucketListAge: PropTypes.func.isRequired,
+  postBucketList: PropTypes.func.isRequired,
 };
 
 export default AddBucketListForm;

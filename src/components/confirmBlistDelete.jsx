@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 
 const ConfirmDelete = props => (
@@ -7,7 +8,7 @@ const ConfirmDelete = props => (
     bsSize="small"
   >
     <Modal.Header>
-      <Modal.Title> Delete {props.item_name} </Modal.Title>
+      <Modal.Title> Delete {props.name} </Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <p>Are you sure you want delete this ?</p>
@@ -16,7 +17,7 @@ const ConfirmDelete = props => (
       <Button
         bsSize="large"
         bsStyle="danger"
-        onClick={() => props.deleteBucketList(props.selectedBucket, props.selected_item)}
+        onClick={() => props.deleteBucketList(props.selectedBucket, props.selectedItem)}
       >
         Delete
       </Button>
@@ -30,5 +31,19 @@ const ConfirmDelete = props => (
     </Modal.Footer>
   </Modal>
 );
+ConfirmDelete.defaultProps = {
+  selectedItem: null,
+  selectedBucket: null,
+};
+
+ConfirmDelete.propTypes = {
+  selectedBucket: PropTypes.number,
+  selectedItem: PropTypes.number,
+  showDeleteBucketList: PropTypes.bool.isRequired,
+  deleteBucketList: PropTypes.func.isRequired,
+  onShowDeleteBucketList: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+};
+
 export default ConfirmDelete;
 
