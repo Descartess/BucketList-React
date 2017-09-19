@@ -4,10 +4,10 @@ import { Modal, Button, FormGroup, FormControl } from 'react-bootstrap';
 
 const SignUpForm = props => (
   <Modal
-    show={props.show}
+    show={props.showSignUp}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.onSignUpShow}>
+    <Modal.Header closeButton onHide={props.onShowSignUp}>
       Sign Up
     </Modal.Header>
     <Modal.Body>
@@ -16,24 +16,24 @@ const SignUpForm = props => (
           <FormControl
             type="text"
             placeholder="Username"
-            onChange={props.userChange}
-            value={props.data.username}
+            onChange={props.onUsernameChange}
+            value={props.username}
           />
         </FormGroup>
         <FormGroup>
           <FormControl
             type="password"
             placeholder="Password"
-            onChange={props.passwordChange}
-            value={props.data.password}
+            onChange={props.onPasswordChange}
+            value={props.password}
           />
         </FormGroup>
         <FormGroup>
           <FormControl
             type="password"
             placeholder="Repeat Password"
-            onChange={props.rpasswordChange}
-            value={props.data.rpassword}
+            onChange={props.onRepeatPasswordChange}
+            value={props.rpassword}
           />
         </FormGroup>
       </form>
@@ -41,7 +41,7 @@ const SignUpForm = props => (
     <Modal.Footer>
       <Button
         bsSize="large"
-        onClick={props.onSignUp}
+        onClick={() => props.registerUser({username: props.username, password:props.password })}
         block
       >
         Sign Up

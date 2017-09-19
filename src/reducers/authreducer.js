@@ -2,6 +2,11 @@ const INITIAL_STATE = {
   loading: false,
   token: null,
   authenticated: false,
+  showSignIn: false,
+  showSignUp: false,
+  username: '',
+  password: '',
+  rpassword: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -36,6 +41,16 @@ export default (state = INITIAL_STATE, action) => {
         loading: false,
         token: action.payload.data.token,
       };
+    case 'USERNAME_CHANGE':
+      return { ...state, username: action.payload };
+    case 'PASSWORD_CHANGE':
+      return { ...state, password: action.payload };
+    case 'REPEAT_PASSWORD_CHANGE':
+      return { ...state, rpassword: action.payload };
+    case 'SHOW_SIGNIN':
+      return { ...state, showSignIn: !state.showSignIn };
+    case 'SHOW_SIGNUP':
+      return { ...state, showSignUp: !state.showSignUp };
     default:
       return state;
   }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { registerUser, signinUser } from '../actions';
+import { bindActionCreators } from 'redux';
+// import PropTypes from 'prop-types';
+import * as authActions from '../actions/authactions';
 import Banner from '../components/banner';
 
 import SignInForm from '../components/signinform';
@@ -10,74 +11,21 @@ import SignUpForm from '../components/signupform';
 class Authenticate extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showSignIn: false,
-      showSignUp: false,
-      username: '',
-      password: '',
-      rpassword: '',
-    };
-    this.onSignInShow = this.onSignInShow.bind(this);
-    this.onSignUpShow = this.onSignUpShow.bind(this);
-    this.handleUsernameInput = this.handleUsernameInput.bind(this);
-    this.handleRepeatPasswordInput = this.handleRepeatPasswordInput.bind(this);
-    this.handlePasswordInput = this.handlePasswordInput.bind(this);
-    this.onSignIn = this.onSignIn.bind(this);
-    this.onSignUp = this.onSignUp.bind(this);
   }
-  onSignInShow() {
-    this.setState({ showSignIn: !this.state.showSignIn });
-  }
-
-  onSignIn() {
-    const { username, password } = this.state;
-    this.props.signinUser({ username, password });
-  }
-
-  onSignUp() {
-    const { username, password } = this.state;
-    this.props.registerUser({ username, password });
-  }
-
-  onSignUpShow() {
-    this.setState({ showSignUp: !this.state.showSignUp });
-  }
-
-  handleUsernameInput(e) {
-    this.setState({ username: e.target.value });
-  }
-
-  handlePasswordInput(e) {
-    this.setState({ password: e.target.value });
-  }
-
-  handleRepeatPasswordInput(e) {
-    this.setState({ rpassword: e.target.value });
-  }
-
   render() {
+    const { auth, authActions } = this.props;
     return (
       <div>
         <Banner
-          onSignInShow={this.onSignInShow}
-          onSignUpShow={this.onSignUpShow}
+          {...authActions}
         />
         <SignInForm
-          data={this.state}
-          show={this.state.showSignIn}
-          onSignIn={this.onSignIn}
-          onSignInShow={this.onSignInShow}
-          userChange={this.handleUsernameInput}
-          passwordChange={this.handlePasswordInput}
+          {...auth}
+          {...authActions}
         />
         <SignUpForm
-          data={this.state}
-          show={this.state.showSignUp}
-          onSignUp={this.onSignUp}
-          onSignUpShow={this.onSignUpShow}
-          userChange={this.handleUsernameInput}
-          passwordChange={this.handlePasswordInput}
-          rpasswordChange={this.handleRepeatPasswordInput}
+          {...auth}
+          {...authActions}
         />
       </div>
     );
@@ -85,9 +33,14 @@ class Authenticate extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { loading } = state.auth;
-  return { loading };
+  const { auth } = state;
+  return { auth };
 };
+
+const mapDispatchToProps = dispatch => ({
+  authActions: bindActionCreators(authActions, dispatch),
+});
+
 
 // Authenticate.propTypes = {
 //   loading: PropTypes.bool.isRequired,
@@ -95,6 +48,6 @@ const mapStateToProps = (state) => {
 //   signinUser: PropTypes.func.isRequired,
 // };
 
-export default connect(mapStateToProps, { registerUser, signinUser })(Authenticate);
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);
 
 export { Authenticate };

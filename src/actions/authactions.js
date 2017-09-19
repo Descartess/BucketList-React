@@ -19,3 +19,26 @@ export const signout = () => ({
   type: 'SIGNOUT',
   payload: instance.get('/auth/logout'),
 });
+
+export const onShowSignIn = () => ({
+  type: 'SHOW_SIGNIN',
+});
+
+export const onShowSignUp = () => ({
+  type: 'SHOW_SIGNUP',
+});
+
+export const onUsernameChange = e => ({
+  type: 'USERNAME_CHANGE',
+  payload: e.target.value,
+});
+
+export const onPasswordChange = e => ({
+  type: 'PASSWORD_CHANGE',
+  payload: e.target.value,
+});
+
+export const onRepeatPasswordChange = e => ({
+  type: 'REPEAT_PASSWORD_CHANGE',
+  payload: e.target.value,
+});

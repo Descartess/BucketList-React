@@ -4,10 +4,10 @@ import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
 
 const SignInForm = props => (
   <Modal
-    show={props.show}
+    show={props.showSignIn}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.onSignInShow}>
+    <Modal.Header closeButton onHide={props.onShowSignIn}>
       <Modal.Title>Sign In</Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -16,16 +16,16 @@ const SignInForm = props => (
           <FormControl
             type="text"
             placeholder="Username"
-            onChange={props.userChange}
-            value={props.data.username}
+            onChange={props.onUsernameChange}
+            value={props.username}
           />
         </FormGroup>
         <FormGroup>
           <FormControl
             type="password"
             placeholder="Password"
-            onChange={props.passwordChange}
-            value={props.data.password}
+            onChange={props.onPasswordChange}
+            value={props.password}
           />
         </FormGroup>
       </form>
@@ -33,7 +33,7 @@ const SignInForm = props => (
     <Modal.Footer>
       <Button
         bsSize="large"
-        onClick={props.onSignIn}
+        onClick={() => props.signinUser({ username: props.username, password: props.password })}
         block
       >
         Sign In
