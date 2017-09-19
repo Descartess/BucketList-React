@@ -24,7 +24,7 @@ exports[`<Authenticate /> renders correctly 1`] = `
         <button
           className="btn btn-lg btn-primary btn-block"
           disabled={false}
-          onClick={[Function]}
+          onClick={undefined}
           type="button"
         >
           Sign In
@@ -32,7 +32,7 @@ exports[`<Authenticate /> renders correctly 1`] = `
         <button
           className="btn btn-lg btn-success btn-block"
           disabled={false}
-          onClick={[Function]}
+          onClick={undefined}
           type="button"
         >
           Sign Up
