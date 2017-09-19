@@ -31,7 +31,29 @@ describe('async actions', () => {
         response: payload,
       });
     });
-    const expectedActions = ['REGISTER_PENDING', 'REGISTER_FULFILLED'];
+    const expectedActions = ['REGISTER_PENDING', 'SIGNIN_FULFILLED'];
+    const store = mockStore({ auth: [] });
+    return store.dispatch(actions.registerUser(credentials)).then(() => {
+      const dispatchedActions = store.getActions();
+      const actionTypes = dispatchedActions.map(action => action.type);
+      expect(actionTypes).toEqual(expectedActions);
+    },
+    );
+  });
+  it('it dispatches SIGNIN_PENDING and REGISTER_PENDING on registration', () => {
+    const credentials = { username: 'test', password: 'testpass' };
+    const payload = {
+      token: 'alphanumeric_string',
+      message: 'Pete',
+      status: 'success' };
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: payload,
+      });
+    });
+    const expectedActions = ['SIGNIN_PENDING', 'SIGNIN_FULFILLED'];
     const store = mockStore({ auth: [] });
     return store.dispatch(actions.registerUser(credentials)).then(() => {
       const dispatchedActions = store.getActions();
