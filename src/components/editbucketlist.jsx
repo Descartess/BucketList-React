@@ -7,7 +7,7 @@ const EditBucketListForm = props => (
     show={props.showEditBucketList}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={() => props.onShowEditBucketList()}>
+    <Modal.Header closeButton onHide={props.onShowEditBucketList}>
       <Modal.Title>Edit Bucketlist </Modal.Title>
     </Modal.Header>
     <Modal.Body>

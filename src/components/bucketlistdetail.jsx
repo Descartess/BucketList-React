@@ -5,8 +5,8 @@ const BucketListDetail = props => (
   <ListGroupItem onClick={() => props.selectBucketList(props.id)}>
     {props.name}
     <div className="pull-right">
-      <Glyphicon glyph="pencil" onClick={() => props.onShowEditBucketList()} />
-      <Glyphicon glyph="trash" onClick={() => props.onShowDeleteBucketList()} />
+      <Glyphicon glyph="pencil" onClick={props.onShowEditBucketList} />
+      <Glyphicon glyph="trash" onClick={props.onShowDeleteBucketList} />
     </div>
   </ListGroupItem>
 );
