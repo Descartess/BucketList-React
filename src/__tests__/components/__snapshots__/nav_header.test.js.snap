@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`banner snapshot  renders correctly 1`] = `
+<nav
+  className="navbar navbar-default"
+>
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="navbar-header"
+    >
+      <a
+        className="navbar-brand"
+      >
+        BucketList
+      </a>
+    </div>
+    <ul
+      className="nav navbar-nav navbar-right"
+      role={null}
+    >
+      <li
+        className="dropdown"
+        style={undefined}
+      >
+        <a
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle"
+          href="#"
+          id="basic-nav-dropdown"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+        >
+          Account Settings
+           
+          <span
+            className="caret"
+          />
+        </a>
+        <ul
+          aria-labelledby="basic-nav-dropdown"
+          className="dropdown-menu"
+          role="menu"
+        >
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1"
+            >
+              Sign Out
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="-1"
+            >
+              Reset Password 
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

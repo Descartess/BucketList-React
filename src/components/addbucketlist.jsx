@@ -50,7 +50,7 @@ AddBucketListForm.propTypes = {
   showAddBucketList: PropTypes.bool.isRequired,
   onShowAddBucketList: PropTypes.func.isRequired,
   bucketlist_name: PropTypes.string.isRequired,
-  bucketlist_age: PropTypes.string.isRequired,
+  bucketlist_age: PropTypes.number.isRequired,
   onChangeBucketListName: PropTypes.func.isRequired,
   onChangeBucketListAge: PropTypes.func.isRequired,
   postBucketList: PropTypes.func.isRequired,
