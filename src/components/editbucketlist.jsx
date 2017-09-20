@@ -56,7 +56,7 @@ EditBucketListForm.propTypes = {
   selectedBucket: PropTypes.number,
   putBucketList: PropTypes.func.isRequired,
   bucketlist_name: PropTypes.string.isRequired,
-  bucketlist_age: PropTypes.string.isRequired,
+  bucketlist_age: PropTypes.number.isRequired,
   onChangeBucketListAge: PropTypes.func.isRequired,
   onChangeBucketListName: PropTypes.func.isRequired,
 };
