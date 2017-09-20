@@ -11,7 +11,9 @@ instance.interceptors.request.use((config) => {
   if (token) {
     config.headers.authorization = `Bearer ${token}`; // eslint-disable-line no-param-reassign
   }
+  config.headers['Access-Control-Allow-Origin'] = '*'; // eslint-disable-line no-param-reassign
   return config;
 });
 
 export default instance;
+

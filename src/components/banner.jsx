@@ -11,14 +11,14 @@ const Banner = props => (
       </div>
       <div className="col-md-4">
         <Button
-          onClick={props.onSignInShow}
+          onClick={props.onShowSignIn}
           bsStyle="primary"
           bsSize="large"
           block
         >Sign In
         </Button>
         <Button
-          onClick={props.onSignUpShow}
+          onClick={props.onShowSignUp}
           bsStyle="success"
           bsSize="large"
           block
@@ -30,9 +30,9 @@ const Banner = props => (
   </div>
 );
 
-// Banner.propTypes = {
-//   onSignInShow: PropTypes.func.isRequired,
-//   onSignUpShow: PropTypes.func.isRequired,
-// };
+Banner.propTypes = {
+  onShowSignUp: PropTypes.func.isRequired,
+  onShowSignIn: PropTypes.func.isRequired,
+};
 
 export default Banner;

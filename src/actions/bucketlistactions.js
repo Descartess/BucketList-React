@@ -45,3 +45,24 @@ export const selectBucketItem = id => ({
   payload: id,
 });
 
+export const onChangeBucketListName = e => ({
+  type: 'CHANGE_BUCKETLIST_NAME',
+  payload: e.target.value,
+});
+
+export const onChangeBucketListAge = e => ({
+  type: 'CHANGE_BUCKETLIST_AGE',
+  payload: e.target.value,
+});
+
+export const onShowAddBucketList = () => ({
+  type: 'SHOW_ADD_BUCKETLIST',
+});
+
+export const onShowEditBucketList = () => ({
+  type: 'SHOW_EDIT_BUCKETLIST',
+});
+
+export const onShowDeleteBucketList = () => ({
+  type: 'SHOW_DELETE_BUCKETLIST',
+});

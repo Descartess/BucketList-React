@@ -4,11 +4,11 @@ import { Modal, Button } from 'react-bootstrap';
 
 const ConfirmDelete = props => (
   <Modal
-    show={props.showDeleteItem}
+    show={props.showDeleteBucketList}
     bsSize="small"
   >
     <Modal.Header>
-      <Modal.Title> Delete {props.item_name} </Modal.Title>
+      <Modal.Title> Delete {props.name} </Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <p>Are you sure you want delete this ?</p>
@@ -17,21 +17,20 @@ const ConfirmDelete = props => (
       <Button
         bsSize="large"
         bsStyle="danger"
-        onClick={() => props.deleteBucketListItem(props.selectedBucket, props.selectedItem)}
+        onClick={() => props.deleteBucketList(props.selectedBucket, props.selectedItem)}
       >
         Delete
       </Button>
       <Button
         bsSize="large"
         bsStyle="success"
-        onClick={() => props.onShowDeleteItem()}
+        onClick={() => props.onShowDeleteBucketList()}
       >
         Cancel
       </Button>
     </Modal.Footer>
   </Modal>
 );
-
 ConfirmDelete.defaultProps = {
   selectedItem: null,
   selectedBucket: null,
@@ -40,10 +39,10 @@ ConfirmDelete.defaultProps = {
 ConfirmDelete.propTypes = {
   selectedBucket: PropTypes.number,
   selectedItem: PropTypes.number,
-  showDeleteItem: PropTypes.bool.isRequired,
-  onShowDeleteItem: PropTypes.func.isRequired,
-  deleteBucketListItem: PropTypes.func.isRequired,
-  item_name: PropTypes.string.isRequired,
+  showDeleteBucketList: PropTypes.bool.isRequired,
+  deleteBucketList: PropTypes.func.isRequired,
+  onShowDeleteBucketList: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default ConfirmDelete;

@@ -6,7 +6,7 @@ import Home from './home';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { authenticated: false };
+    this.renderScreen = this.renderScreen.bind(this);
   }
   renderScreen() {
     const { authenticated, token } = this.props;
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-       { this.renderScreen() }
+        { this.renderScreen() }
       </div>
     );
   }
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => {
 };
 export default connect(mapStateToProps)(App);
 
-export { App }
+export { App };

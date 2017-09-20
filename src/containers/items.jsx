@@ -1,72 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+
 import Header from '../components/header';
 import AddBucketListItemForm from '../components/additem';
 import ItemDetail from '../components/item_detail';
 import EditBucketListItem from '../components/editItem';
 import ConfirmDelete from '../components/confirm_delete';
-import { addBucketListItem,
-  editBucketListItem,
-  deleteBucketListItem,
-  selectBucketItem,
-} from '../actions';
+import * as actions from '../actions';
+
 
 class ItemContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showEditItem: false,
-      showAddItem: false,
-      showDeleteItem: false,
-      item_name: '',
-      completed: false,
-    };
     this.renderItems = this.renderItems.bind(this);
-    this.nameChange = this.nameChange.bind(this);
-    this.showAddItem = this.showAddItem.bind(this);
-    this.submitBucketListItem = this.submitBucketListItem.bind(this);
     this.itemsDisplay = this.itemsDisplay.bind(this);
-    this.showDelete = this.showDelete.bind(this);
-    this.showEditItem = this.showEditItem.bind(this);
-    this.onToggle = this.onToggle.bind(this);
-    this.editBucketItem = this.editBucketItem.bind(this);
   }
-  showAddItem() {
-    this.setState({ showAddItem: !this.state.showAddItem });
-  }
-  onToggle() {
-    this.setState({ completed: !this.state.completed });
-  }
-  nameChange(e) {
-    this.setState({ item_name: e.target.value });
-  }
-  submitBucketListItem() {
-    const { item_name } = this.state;
-    const { selectedBucket } = this.props;
-    this.props.addBucketListItem(selectedBucket, { name: item_name });
-  }
-  showEditItem(item) {
-    console.log(item);
-    this.setState({
-      item_name: item.name,
-      completed: item.completed,
-      showEditItem: !this.state.showEditItem,
-    });
-  }
-  showDelete() {
-    this.setState({ showDeleteItem: !this.state.showDeleteItem });
-  }
-  editBucketItem() {
-    const { completed, item_name } = this.state;
-    const { selectedBucket, selected_item } = this.props;
-    this.props.editBucketListItem(selectedBucket, selected_item, {
-      name: item_name,
-      completed,
-    });
-  }
+
   itemsDisplay(bucket) {
     const { items } = bucket;
+    const { itemActions } = this.props;
     if (items.length < 1) {
       return (
         <div> No items in this Bucketlist</div>
@@ -76,22 +31,22 @@ class ItemContainer extends Component {
       <ItemDetail
         key={item.id}
         {...item}
-        onSelect={() => this.props.selectBucketItem(item.id)}
-        edit={() => this.showEditItem(item)}
-        delete={this.showDelete}
+        {...itemActions}
       />
     ),
     );
   }
   renderItems() {
-    const { selectedBucket, bucketlists } = this.props;
+    const { selectedBucket, bucketlists } = this.props.bucketlistsContainer;
+    const { itemActions } = this.props;
     if (selectedBucket) {
       const bucket = _.find(bucketlists, n => n.id === selectedBucket);
       return (
         <div className="panel panel-default">
           <Header
+            {...itemActions}
             title={bucket.name}
-            add={this.showAddItem}
+            add
           />
           <div className="panel-body">
             {this.itemsDisplay(bucket)}
@@ -109,46 +64,55 @@ class ItemContainer extends Component {
       </div>);
   }
   render() {
-    const { selectedBucket, selected_item } = this.props;
+    const { itemsContainer, itemActions } = this.props;
+    const { selectedBucket, selectedItem } = this.props.bucketlistsContainer;
     return (
       <div>
         <div className="col-md-6">
           {this.renderItems()}
         </div>
         <AddBucketListItemForm
-          show={this.state.showAddItem}
-          onNameChange={this.nameChange}
-          {...this.state}
-          close={this.showAddItem}
-          addBucketListItem={this.submitBucketListItem}
+          {...itemActions}
+          {...itemsContainer}
+          selectedBucket={selectedBucket}
         />
         <ConfirmDelete
-          show={this.state.showDeleteItem}
+          {...itemsContainer}
+          {...itemActions}
           name="BucketList Item"
-          cancel={this.showDelete}
-          delete={() => this.props.deleteBucketListItem(selectedBucket, selected_item)}
+          selectedBucket={selectedBucket}
+          selectedItem={selectedItem}
         />
         <EditBucketListItem
-          {...this.state}
-          close={() => this.setState({ showEditItem: !this.state.showEditItem })}
-          show={this.state.showEditItem}
-          onNameChange={this.nameChange}
-          onToggle={this.onToggle}
-          editBucketItem={this.editBucketItem}
+          {...itemActions}
+          {...itemsContainer}
+          selectedBucket={selectedBucket}
+          selectedItem={selectedItem}
         />
       </div>
     );
   }
 }
+
 const mapStateToProps = (state) => {
-  const { bucketlists, selectedBucket, selected_item } = state.bucketlists;
-  return { bucketlists, selectedBucket, selected_item };
+  const { bucketlistsContainer, itemsContainer } = state;
+  return { bucketlistsContainer, itemsContainer };
 };
-export default connect(mapStateToProps,
-  { addBucketListItem,
-    editBucketListItem,
-    deleteBucketListItem,
-    selectBucketItem,
-  })(ItemContainer);
+
+const mapDispatchToProps = dispatch => ({
+  itemActions: bindActionCreators(actions, dispatch),
+});
+
+ItemContainer.defaultProps = {
+  selectedBucket: null,
+  selectedItem: null,
+};
+
+ItemContainer.propTypes = {
+  selectedBucket: PropTypes.number,
+  selectedItem: PropTypes.number,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemContainer);
 
 export { ItemContainer };
