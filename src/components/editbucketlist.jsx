@@ -7,7 +7,7 @@ const EditBucketListForm = props => (
     show={props.showEditBucketList}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={() => props.onShowEditBucketList()}>
+    <Modal.Header closeButton onHide={props.onShowEditBucketList}>
       <Modal.Title>Edit Bucketlist </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -56,7 +56,7 @@ EditBucketListForm.propTypes = {
   selectedBucket: PropTypes.number,
   putBucketList: PropTypes.func.isRequired,
   bucketlist_name: PropTypes.string.isRequired,
-  bucketlist_age: PropTypes.string.isRequired,
+  bucketlist_age: PropTypes.number.isRequired,
   onChangeBucketListAge: PropTypes.func.isRequired,
   onChangeBucketListName: PropTypes.func.isRequired,
 };

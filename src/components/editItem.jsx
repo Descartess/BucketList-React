@@ -10,7 +10,7 @@ const EditBucketListItem = props => (
     show={props.showEditItem}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={() => props.onShowEditItem()}>
+    <Modal.Header closeButton onHide={props.onShowEditItem}>
       <Modal.Title>{props.item_name}</Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -19,7 +19,7 @@ const EditBucketListItem = props => (
           <h4>Completed
           <div className="pull-right">
             <Toggle
-              onClick={() => props.onToggleCompleted()}
+              onClick={props.onToggleCompleted}
               on={<h6>True</h6>}
               off={<h6>False</h6>}
               size="xs"

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot  Header component renders correctly 1`] = `
+<div
+  className="panel-heading"
+>
+  
+  <div
+    className="pull-right"
+    id="addBucket"
+    onClick={[Function]}
+  >
+    <span
+      className="glyphicon glyphicon-plus"
+    />
+     Add
+  </div>
+</div>
+`;

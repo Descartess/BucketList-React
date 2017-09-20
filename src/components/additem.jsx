@@ -7,7 +7,7 @@ const AddBucketListItemForm = props => (
     show={props.showAddItem}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={() => props.onShowAddItem()}>
+    <Modal.Header closeButton onHide={props.onShowAddItem}>
       <Modal.Title>Add Bucketlist Item </Modal.Title>
     </Modal.Header>
     <Modal.Body>

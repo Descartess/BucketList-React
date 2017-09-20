@@ -24,7 +24,7 @@ const ConfirmDelete = props => (
       <Button
         bsSize="large"
         bsStyle="success"
-        onClick={() => props.onShowDeleteItem()}
+        onClick={props.onShowDeleteItem}
       >
         Cancel
       </Button>

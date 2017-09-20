@@ -7,8 +7,8 @@ const ItemDetail = props => (
       {props.name}
     </Checkbox>
     <div className="pull-right">
-      <Glyphicon glyph="pencil" onClick={() => props.onShowEditItem()} />
-      <Glyphicon glyph="trash" onClick={() => props.onShowDeleteItem()} />
+      <Glyphicon glyph="pencil" onClick={props.onShowEditItem} />
+      <Glyphicon glyph="trash" onClick={props.onShowDeleteItem} />
     </div>
   </ListGroupItem>
 );

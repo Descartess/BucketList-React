@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`banner snapshot  renders correctly 1`] = `
+<button
+  className="list-group-item"
+  onClick={[Function]}
+  type="button"
+>
+  
+  <div
+    className="pull-right"
+  >
+    <span
+      className="glyphicon glyphicon-pencil"
+      onClick={[Function]}
+    />
+    <span
+      className="glyphicon glyphicon-trash"
+      onClick={[Function]}
+    />
+  </div>
+</button>
+`;
