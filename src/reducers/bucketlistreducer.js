@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   bucketlists: [],
   selectedBucket: null,
   selectedItem: null,

@@ -1,4 +1,4 @@
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   loading: false,
   token: null,
   authenticated: false,
@@ -28,7 +28,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'SIGNIN_PENDING':
       return { ...state, loading: true };
     case 'SIGNIN_REJECTED':
-      return { ...state, loading: true, error: true };
+      return { ...state, loading: false, error: true };
     case 'SIGNIN_FULFILLED':
       return {
         ...state,
@@ -55,7 +55,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'SHOW_SIGNUP':
       return { ...state, showSignUp: !state.showSignUp };
     case 'SHOW_RESETPASSWORD':
-      return { ...state, showSignUp: !state.showResetPassword };
+      return { ...state, showResetPassword: !state.showResetPassword };
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   showEditItem: false,
   showAddItem: false,
   showDeleteItem: false,
