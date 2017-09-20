@@ -6,8 +6,6 @@ import * as actions from '../../actions';
 import instance from '../../config/axiosconfig';
 
 
-// const host = 'http://localhost:5000';
-
 describe('async actions', () => {
   const middlewares = [thunk, promiseMiddleware()];
   const mockStore = configureMockStore(middlewares);
@@ -31,8 +29,8 @@ describe('async actions', () => {
         response: payload,
       });
     });
-    const expectedActions = ['REGISTER_PENDING', 'SIGNIN_FULFILLED'];
-    const store = mockStore({ auth: [] });
+    const expectedActions = ['REGISTER_PENDING', 'REGISTER_FULFILLED'];
+    const store = mockStore({});
     return store.dispatch(actions.registerUser(credentials)).then(() => {
       const dispatchedActions = store.getActions();
       const actionTypes = dispatchedActions.map(action => action.type);
@@ -40,22 +38,54 @@ describe('async actions', () => {
     },
     );
   });
-  it('it dispatches SIGNIN_PENDING and REGISTER_PENDING on registration', () => {
+  it('it dispatches SIGNIN_PENDING and SIGNIN_FULFILLED on sign up', () => {
     const credentials = { username: 'test', password: 'testpass' };
-    const payload = {
-      token: 'alphanumeric_string',
-      message: 'Pete',
-      status: 'success' };
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
-        response: payload,
       });
     });
     const expectedActions = ['SIGNIN_PENDING', 'SIGNIN_FULFILLED'];
-    const store = mockStore({ auth: [] });
-    return store.dispatch(actions.registerUser(credentials)).then(() => {
+    const store = mockStore({});
+    return store.dispatch(actions.signinUser(credentials)).then(() => {
+      const dispatchedActions = store.getActions();
+      const actionTypes = dispatchedActions.map(action => action.type);
+      expect(actionTypes).toEqual(expectedActions);
+    },
+    );
+  });
+  it('it dispatches SIGNOUT_PENDING and SIGNOUT_FULFILLED on sign out', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+      });
+    });
+    const expectedActions = ['SIGNOUT_PENDING', 'SIGNOUT_FULFILLED'];
+    const store = mockStore({});
+    return store.dispatch(actions.signout()).then(() => {
+      const dispatchedActions = store.getActions();
+      const actionTypes = dispatchedActions.map(action => action.type);
+      expect(actionTypes).toEqual(expectedActions);
+    },
+    );
+  });
+  it('it dispatches RESETPASSWORD_PENDING and RESETPASSWORD_FULFILLED on reset password', () => {
+    const credentials = {
+      username: 'Paul',
+      old_password: '12313',
+      new_password: '12314',
+    };
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+      });
+    });
+    const expectedActions = ['RESETPASSWORD_PENDING', 'RESETPASSWORD_FULFILLED'];
+    const store = mockStore({});
+    return store.dispatch(actions.resetpassword(credentials)).then(() => {
       const dispatchedActions = store.getActions();
       const actionTypes = dispatchedActions.map(action => action.type);
       expect(actionTypes).toEqual(expectedActions);
@@ -64,3 +94,76 @@ describe('async actions', () => {
   });
 });
 
+describe('synchronous actions', () => {
+  const middlewares = [thunk, promiseMiddleware()];
+  const mockStore = configureMockStore(middlewares);
+
+  it('it dispatches SHOW_SIGNIN on showSignIn', () => {
+    const store = mockStore({});
+    store.dispatch(actions.onShowSignIn());
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'SHOW_SIGNIN' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches SHOW_RESETPASSWORD on reset password', () => {
+    const store = mockStore({});
+    store.dispatch(actions.onShowResetPassword());
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'SHOW_RESETPASSWORD' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches SHOW_SIGNUP on showSignUp', () => {
+    const store = mockStore({});
+    store.dispatch(actions.onShowSignUp());
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'SHOW_SIGNUP' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches SHOW_SIGNUP on showSignUp', () => {
+    const store = mockStore({});
+    const e = { target: { value: 'Paul' } };
+    store.dispatch(actions.onUsernameChange(e));
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'USERNAME_CHANGE', payload: 'Paul' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches PASSWORD_CHANGE on password change', () => {
+    const store = mockStore({});
+    const e = { target: { value: 'Paul' } };
+    store.dispatch(actions.onPasswordChange(e));
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'PASSWORD_CHANGE', payload: 'Paul' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches REPEAT_PASSWORD_CHANGE on password change', () => {
+    const store = mockStore({});
+    const e = { target: { value: 'Paul' } };
+    store.dispatch(actions.onRepeatPasswordChange(e));
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'REPEAT_PASSWORD_CHANGE', payload: 'Paul' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches NEW_PASSWORD_CHANGE on password change', () => {
+    const store = mockStore({});
+    const e = { target: { value: 'Paul' } };
+    store.dispatch(actions.changeNewPassword(e));
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'NEW_PASSWORD_CHANGE', payload: 'Paul' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+
+  it('it dispatches OLD_PASSWORD_CHANGE on password change', () => {
+    const store = mockStore({});
+    const e = { target: { value: 'Paul' } };
+    store.dispatch(actions.changeOldPassword(e));
+    const dispatchedActions = store.getActions();
+    const expectedActions = [{ type: 'OLD_PASSWORD_CHANGE', payload: 'Paul' }];
+    expect(dispatchedActions).toEqual(expectedActions);
+  });
+});
