@@ -54,7 +54,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'SELECT_BUCKETLIST':
       return { ...state, selectedBucket: action.payload };
     case 'SELECT_ITEM':
-      return { ...state, selectedItem: action.payload };
+      return { ...state, selectedItem: action.payload.id };
     case 'CHANGE_BUCKETLIST_NAME':
       return { ...state, bucketlist_name: action.payload };
     case 'CHANGE_BUCKETLIST_AGE':

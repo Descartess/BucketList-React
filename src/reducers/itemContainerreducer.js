@@ -16,6 +16,8 @@ export default (state = initialState, action) => {
       return { ...state, showDeleteItem: !state.showDeleteItem };
     case 'TOGGLE_COMPLETED':
       return { ...state, completed: !state.completed };
+    case 'SELECT_ITEM':
+      return { ...state, item_name: action.payload.name };
     case 'ON_NAME_CHANGE':
       return { ...state, item_name: action.payload };
     default:

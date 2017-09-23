@@ -40,9 +40,9 @@ export const selectBucketList = id => ({
   payload: id,
 });
 
-export const selectBucketItem = id => ({
+export const selectBucketItem = item => ({
   type: 'SELECT_ITEM',
-  payload: id,
+  payload: item,
 });
 
 export const onChangeBucketListName = e => ({
