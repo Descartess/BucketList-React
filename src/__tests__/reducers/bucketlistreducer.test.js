@@ -118,14 +118,19 @@ describe('items reducer', () => {
   it('should update the selected bucketlist ', () => {
     expect(reducer(INITIAL_STATE, {
       type: 'SELECT_BUCKETLIST',
-      payload: 2,
-    })).toEqual({ ...INITIAL_STATE, selectedBucket: 2 });
+      payload: { id: 2, name: 'Career', completed_by: 23 },
+    })).toEqual({
+      ...INITIAL_STATE,
+      selectedBucket: 2,
+      bucketlist_name: 'Career',
+      bucketlist_age: 23,
+    });
   });
 
   it('should update the selected item  ', () => {
     expect(reducer(INITIAL_STATE, {
       type: 'SELECT_ITEM',
-      payload: 2,
+      payload: { id: 2 },
     })).toEqual({ ...INITIAL_STATE, selectedItem: 2 });
   });
 

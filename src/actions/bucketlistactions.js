@@ -35,14 +35,14 @@ export const deleteBucketListItem = (id, itemId) => ({
   payload: instance.delete(`/bucketlists/${id}/items/${itemId}`),
 });
 
-export const selectBucketList = id => ({
+export const selectBucketList = bucket => ({
   type: 'SELECT_BUCKETLIST',
-  payload: id,
+  payload: bucket,
 });
 
-export const selectBucketItem = id => ({
+export const selectBucketItem = item => ({
   type: 'SELECT_ITEM',
-  payload: id,
+  payload: item,
 });
 
 export const onChangeBucketListName = e => ({

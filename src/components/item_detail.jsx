@@ -2,7 +2,7 @@ import React from 'react';
 import { ListGroupItem, Glyphicon, Checkbox } from 'react-bootstrap';
 
 const ItemDetail = props => (
-  <ListGroupItem onClick={() => props.selectBucketItem(props.id)}>
+  <ListGroupItem onClick={() => props.selectBucketItem({id: props.id, name: props.name })}>
     <Checkbox checked={props.completed} inline >
       {props.name}
     </Checkbox>
