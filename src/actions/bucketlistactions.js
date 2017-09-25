@@ -35,13 +35,34 @@ export const deleteBucketListItem = (id, itemId) => ({
   payload: instance.delete(`/bucketlists/${id}/items/${itemId}`),
 });
 
-export const selectBucketList = id => ({
+export const selectBucketList = bucket => ({
   type: 'SELECT_BUCKETLIST',
-  payload: id,
+  payload: bucket,
 });
 
-export const selectBucketItem = id => ({
+export const selectBucketItem = item => ({
   type: 'SELECT_ITEM',
-  payload: id,
+  payload: item,
 });
 
+export const onChangeBucketListName = e => ({
+  type: 'CHANGE_BUCKETLIST_NAME',
+  payload: e.target.value,
+});
+
+export const onChangeBucketListAge = e => ({
+  type: 'CHANGE_BUCKETLIST_AGE',
+  payload: e.target.value,
+});
+
+export const onShowAddBucketList = () => ({
+  type: 'SHOW_ADD_BUCKETLIST',
+});
+
+export const onShowEditBucketList = () => ({
+  type: 'SHOW_EDIT_BUCKETLIST',
+});
+
+export const onShowDeleteBucketList = () => ({
+  type: 'SHOW_DELETE_BUCKETLIST',
+});

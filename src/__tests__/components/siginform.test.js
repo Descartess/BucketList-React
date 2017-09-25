@@ -1,17 +1,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ItemDetail from '../../components/item_detail';
+import SignUpForm from '../../components/signinform';
 
 describe('banner snapshot ', () => {
   const props = {
-    selectBucketItem: jest.fn(),
-    onShowEditItem: jest.fn(),
-    onShowDeleteItem: jest.fn(),
-    completed: false,
+    onShowSignIn: jest.fn(),
+    onUsernameChange: jest.fn(),
+    signinUser: jest.fn(),
+    onPasswordChange: jest.fn(),
+    username: '',
+    password: '',
+    showSignIn: false,
   };
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <ItemDetail {...props} />,
+      <SignUpForm {...props} />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
   });

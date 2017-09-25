@@ -1,11 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import AddBucketListItemForm from '../../components/additem';
+import Banner from '../../components/banner';
 
-describe('add item component', () => {
+describe('banner snapshot ', () => {
+  const props = {
+    onShowSignUp: jest.fn(),
+    onShowSignIn: jest.fn(),
+  };
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <AddBucketListItemForm />,
+      <Banner {...props} />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
   });

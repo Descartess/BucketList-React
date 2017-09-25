@@ -4,10 +4,10 @@ import { Modal, Button, FormGroup, FormControl } from 'react-bootstrap';
 
 const ResetPassword = props => (
   <Modal
-    show={props.show}
+    show={props.showResetPassword}
     bsSize="small"
   >
-    <Modal.Header closeButton onHide={props.showResetPassword}>
+    <Modal.Header closeButton onHide={props.onShowResetPassword}>
       Reset Password
     </Modal.Header>
     <Modal.Body>
@@ -15,15 +15,15 @@ const ResetPassword = props => (
         <FormGroup>
           <FormControl
             type="text"
-            value={props.data.username}
-            onChange={props.changeUsername}
+            value={props.username}
+            onChange={props.onUsernameChange}
             placeholder="Username"
           />
         </FormGroup>
         <FormGroup>
           <FormControl
             type="password"
-            value={props.data.old_password}
+            value={props.old_password}
             onChange={props.changeOldPassword}
             placeholder="Old Password"
           />
@@ -31,7 +31,7 @@ const ResetPassword = props => (
         <FormGroup>
           <FormControl
             type="password"
-            value={props.data.new_password}
+            value={props.new_password}
             placeholder="New Password"
             onChange={props.changeNewPassword}
           />
@@ -42,7 +42,11 @@ const ResetPassword = props => (
       <Button
         bsSize="large"
         block
-        onClick={props.passwordreset}
+        onClick={() => props.resetpassword({
+          username: props.username,
+          old_password: props.old_password,
+          new_password: props.new_password,
+        })}
       >
         Reset Password
       </Button>
@@ -51,8 +55,15 @@ const ResetPassword = props => (
 );
 
 ResetPassword.propTypes = {
-  show: PropTypes.bool.isRequired,
-  showResetPassword: PropTypes.func.isRequired,
+  showResetPassword: PropTypes.bool.isRequired,
+  onShowResetPassword: PropTypes.func.isRequired,
+  changeNewPassword: PropTypes.func.isRequired,
+  changeOldPassword: PropTypes.func.isRequired,
+  onUsernameChange: PropTypes.func.isRequired,
+  resetpassword: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  old_password: PropTypes.string.isRequired,
+  new_password: PropTypes.string.isRequired,
 };
 
 export default ResetPassword;

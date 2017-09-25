@@ -6,17 +6,7 @@ exports[`banner snapshot  renders correctly 1`] = `
   onClick={[Function]}
   type="button"
 >
-  <label
-    className="checkbox-inline"
-    style={undefined}
-    title=""
-  >
-    <input
-      checked={false}
-      disabled={false}
-      type="checkbox"
-    />
-  </label>
+  
   <div
     className="pull-right"
   >

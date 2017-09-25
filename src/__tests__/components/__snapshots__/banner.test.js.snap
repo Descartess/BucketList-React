@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`banner snapshot  renders correctly 1`] = `
+<div
+  className="jumbotron"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-8"
+    >
+      <h1>
+        BucketList
+      </h1>
+      <p>
+        Track, Record and Share things you want to do before a certain age.
+      </p>
+    </div>
+    <div
+      className="col-md-4"
+    >
+      <button
+        className="btn btn-lg btn-primary btn-block"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Sign In
+      </button>
+      <button
+        className="btn btn-lg btn-success btn-block"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Sign Up
+      </button>
+    </div>
+  </div>
+</div>
+`;

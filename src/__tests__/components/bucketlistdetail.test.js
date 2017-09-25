@@ -1,17 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ItemDetail from '../../components/item_detail';
+import BucketListDetail from '../../components/bucketlistdetail';
 
 describe('banner snapshot ', () => {
   const props = {
-    selectBucketItem: jest.fn(),
-    onShowEditItem: jest.fn(),
-    onShowDeleteItem: jest.fn(),
-    completed: false,
+    onShowEditBucketList: jest.fn(),
+    onShowDeleteBucketList: jest.fn(),
+    selectBucketList: jest.fn(),
+    name: '',
+    id: 2,
   };
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <ItemDetail {...props} />,
+      <BucketListDetail {...props} />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
   });

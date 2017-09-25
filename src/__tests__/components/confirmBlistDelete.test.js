@@ -1,17 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ItemDetail from '../../components/item_detail';
+import ConfirmDelete from '../../components/confirmBlistDelete';
 
 describe('banner snapshot ', () => {
   const props = {
-    selectBucketItem: jest.fn(),
-    onShowEditItem: jest.fn(),
-    onShowDeleteItem: jest.fn(),
-    completed: false,
+    onShowDeleteBucketList: jest.fn(),
+    deleteBucketList: jest.fn(),
+    selectedBucket: 1,
+    selectedItem: 1,
+    name: '',
+    showDeleteBucketList: false,
   };
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <ItemDetail {...props} />,
+      <ConfirmDelete {...props} />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
   });

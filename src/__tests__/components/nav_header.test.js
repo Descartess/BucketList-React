@@ -1,11 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import EditBucketListItem from '../../components/editItem';
+import Header from '../../components/nav_header';
 
-describe('edit item component', () => {
+describe('banner snapshot ', () => {
+  const props = {
+    handleSelect: jest.fn(),
+  };
   it('renders correctly', () => {
     const rendered = renderer.create(
-      <EditBucketListItem />,
+      <Header {...props} />,
     );
     expect(rendered.toJSON()).toMatchSnapshot();
   });

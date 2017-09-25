@@ -2,13 +2,13 @@ import React from 'react';
 import { ListGroupItem, Glyphicon, Checkbox } from 'react-bootstrap';
 
 const ItemDetail = props => (
-  <ListGroupItem onClick={() => props.onSelect(props.id)}>
+  <ListGroupItem onClick={() => props.selectBucketItem({id: props.id, name: props.name })}>
     <Checkbox checked={props.completed} inline >
       {props.name}
     </Checkbox>
     <div className="pull-right">
-      <Glyphicon glyph="pencil" onClick={props.edit} />
-      <Glyphicon glyph="trash" onClick={props.delete} />
+      <Glyphicon glyph="pencil" onClick={props.onShowEditItem} />
+      <Glyphicon glyph="trash" onClick={props.onShowDeleteItem} />
     </div>
   </ListGroupItem>
 );
