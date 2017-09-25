@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/Descartess/BucketList-React.svg?branch=master)](https://travis-ci.org/Descartess/BucketList-React)
-
 [![Coverage Status](https://coveralls.io/repos/github/Descartess/BucketList-React/badge.svg?branch=master)](https://coveralls.io/github/Descartess/BucketList-React?branch=master)
 # BucketList-React
 
