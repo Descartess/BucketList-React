@@ -52,7 +52,11 @@ export default (state = INITIAL_STATE, action) => {
         bucketlists: _.unionBy([bucketlist], state.bucketlists, 'id'),
       }; }
     case 'SELECT_BUCKETLIST':
-      return { ...state, selectedBucket: action.payload };
+      return {
+        ...state,
+        selectedBucket: action.payload.id,
+        bucketlist_name: action.payload.name,
+        bucketlist_age: action.payload.completed_by };
     case 'SELECT_ITEM':
       return { ...state, selectedItem: action.payload.id };
     case 'CHANGE_BUCKETLIST_NAME':
@@ -60,7 +64,12 @@ export default (state = INITIAL_STATE, action) => {
     case 'CHANGE_BUCKETLIST_AGE':
       return { ...state, bucketlist_age: action.payload };
     case 'SHOW_ADD_BUCKETLIST':
-      return { ...state, showAddBucketList: !state.showAddBucketList };
+      return {
+        ...state,
+        showAddBucketList: !state.showAddBucketList,
+        bucketlist_name: '',
+        bucketlist_age: '',
+      };
     case 'SHOW_EDIT_BUCKETLIST':
       return { ...state, showEditBucketList: !state.showEditBucketList };
     case 'SHOW_DELETE_BUCKETLIST':
