@@ -81,7 +81,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'OLD_PASSWORD_CHANGE':
       return { ...state, old_password: action.payload };
     case 'SHOW_RESETPASSWORD':
-      return { ...state, showResetPassword: !state.showResetPassword };
+      return { ...state, showResetPassword: !state.showResetPassword, error: false };
     default:
       return state;
   }
