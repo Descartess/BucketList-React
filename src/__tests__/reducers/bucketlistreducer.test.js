@@ -98,6 +98,7 @@ describe('items reducer', () => {
       type: 'GET_BUCKETLISTS_PENDING',
     })).toEqual({
       ...INITIAL_STATE,
+      loading: true,
     });
   });
 
@@ -106,6 +107,7 @@ describe('items reducer', () => {
       type: 'POST_BUCKETLISTS_PENDING',
     })).toEqual({
       ...INITIAL_STATE,
+      loading: true,
     });
   });
 

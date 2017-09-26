@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button, FormGroup, FormControl } from 'react-bootstrap';
+import Spinner from './spinner';
 
 const ResetPassword = props => (
   <Modal
@@ -39,23 +40,32 @@ const ResetPassword = props => (
       </form>
     </Modal.Body>
     <Modal.Footer>
-      <Button
-        bsSize="large"
-        block
-        onClick={() => props.resetpassword({
-          username: props.username,
-          old_password: props.old_password,
-          new_password: props.new_password,
-        })}
-      >
+      {props.error ? (
+        <p style={{ color: 'red', textAlign: 'center' }} > {props.error_msg} </p>
+    ) : (null)}
+      {props.loading? (
+        <Spinner />
+      ) : (
+        <Button
+          bsSize="large"
+          block
+          onClick={() => props.resetpassword({
+            username: props.username,
+            old_password: props.old_password,
+            new_password: props.new_password,
+          })}
+        >
         Reset Password
       </Button>
+      )}
     </Modal.Footer>
   </Modal>
 );
 
 ResetPassword.propTypes = {
   showResetPassword: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   onShowResetPassword: PropTypes.func.isRequired,
   changeNewPassword: PropTypes.func.isRequired,
   changeOldPassword: PropTypes.func.isRequired,
