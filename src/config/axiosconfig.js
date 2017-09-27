@@ -5,7 +5,6 @@ const instance = axios.create({
   baseURL: 'https://descartes-bucketlist.herokuapp.com',
 });
 
-instance.defaults.timeout = 5000;
 instance.interceptors.request.use((config) => {
   const token = store.getState().auth.token;
   if (token) {
