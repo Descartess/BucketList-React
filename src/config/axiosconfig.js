@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from './store';
 
 const instance = axios.create({
-  baseURL: 'http://descartes-bucketlist.herokuapp.com',
+  baseURL: 'https://descartes-bucketlist.herokuapp.com',
 });
 
 instance.defaults.timeout = 5000;
