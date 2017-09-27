@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
+import Spinner from './spinner';
 
 const SignInForm = props => (
   <Modal
@@ -31,13 +32,20 @@ const SignInForm = props => (
       </form>
     </Modal.Body>
     <Modal.Footer>
-      <Button
-        bsSize="large"
-        onClick={() => props.signinUser({ username: props.username, password: props.password })}
-        block
-      >
+      {props.error ? (
+        <p style={{ color: 'red', textAlign: 'center' }} > {props.error_msg} </p>
+    ) : (null)}
+      {props.loading ? (
+        <Spinner />
+        ) : (
+        <Button
+          bsSize="large"
+          onClick={() => props.signinUser({ username: props.username, password: props.password })}
+          block
+        >
         Sign In
-      </Button>
+        </Button>
+    )}
     </Modal.Footer>
   </Modal>
 );
@@ -48,8 +56,11 @@ SignInForm.propTypes = {
   onUsernameChange: PropTypes.func.isRequired,
   onPasswordChange: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired,
+  error_msg: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   showSignIn: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default SignInForm;

@@ -61,12 +61,14 @@ describe('items reducer', () => {
   it('should show error on rejected calls', () => {
     expect(reducer(INITIAL_STATE, {
       type: 'REGISTER_REJECTED',
+      payload: { response: { data: {} } },
     })).toEqual({ ...INITIAL_STATE, loading: false, error: true });
   });
 
   it('should show error on rejected calls', () => {
     expect(reducer(INITIAL_STATE, {
       type: 'SIGNIN_REJECTED',
+      payload: { response: { data: {} } },
     })).toEqual({ ...INITIAL_STATE, loading: false, error: true });
   });
 
