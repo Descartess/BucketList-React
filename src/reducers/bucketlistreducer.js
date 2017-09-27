@@ -29,6 +29,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, bucket_error: true };
     case 'DELETE_BUCKETLISTS_PENDING':
       return { ...state, loading: true };
+    case 'DELETE_BUCKETLISTS_FULFILLED': {
+      const { bucketlist } = action.payload.data;
+      const bucketlists = _.remove(state.bucketlists, n => n.id !== bucketlist);
+      return { ...state, bucketlists, selectedBucket: null, selectedItem: null }; }
     case 'EDIT_BUCKETLISTS_FULFILLED': {
       const { bucketlist } = action.payload.data;
       return { ...state,
